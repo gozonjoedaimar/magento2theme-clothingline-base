@@ -22,6 +22,17 @@
 @gold-800: #A27C1A;
 @gold-900: #7C5E10;
 
+// Slate:
+@slate-100: #E2E8F0;
+@slate-200: #CBD5E1;
+@slate-300: #A0AEC0;
+@slate-400: #718096;
+@slate-500: #4A5568;
+@slate-600: #2D3748;
+@slate-700: #1A202C;
+@slate-800: #171923;
+@slate-900: #0A0C10;
+
 /* Theme Colors */
 // base
 @base: @navy-blue-600;
@@ -34,14 +45,46 @@
 @button-primary: @base;
 @button-primary-border: @base-accent;
 @button-primary-hover: @base-accent;
+@button-text: @navy-blue-100;
+// header panel
+@panel-base: white;
+@panel-text: @slate-600;
+// nav section
+@nav-base: @navy-blue-100;
+@nav-text: @slate-600;
 
 /* Layout */
 .page-header .panel.wrapper {
-	background-color: @base;
+	& {
+		background-color: @panel-base;
+		color: @panel-text;
+	}
+	.panel.header {
+		.header.links a {
+			color: @panel-text;
+		}
+	}
 }
-.sections.nav-sections, .navigation {
-	background-color: @base-secondary;
+.sections.nav-sections {
+	background-color: @nav-base;
 }
+.navigation {
+	& {
+		background-color: transparent;
+	}
+	.level0 {
+	  &.active {
+		 > .level-top {
+			border-color: @base;
+			color: @nav-text;
+		 }
+	  }
+	  > .level-top {
+		 color: @nav-text;
+	  }
+	}
+ }
+
 .minicart-wrapper .action.showcart {
 	&::before {
 		color: @base2-accent;
@@ -51,19 +94,6 @@
 		color: @base2-accent;
 	}
 }
-.navigation {
-	.level0 {
-	  &.active {
-		 > .level-top {
-			border-color: @base;
-			color: @base-accent;
-		 }
-	  }
-	  > .level-top {
-		 color: @base-accent;
-	  }
-	}
- }
 .copyright {
 	background-color: @base2;
 }
@@ -87,20 +117,38 @@
 	color: @base2-accent;
 }
 /* Buttons */
-.action {
+.action,
+.review-form .action.submit
+{
 	&.primary {
 	  background-color: @button-primary;
 	  border-color: @button-primary-border;
+	  color: @button-text;
 	  &:hover {
 		 background-color: @button-primary-hover;
+		 color: @button-text;
 	  }
 	}
- }
+}
  
 .control {
 	input,
 	textarea
 	{
-		border-color: @base2-accent;
+		& {
+			border-color: @base2-accent;
+		}
+		&:not([disabled]):focus {
+			box-shadow: 0 0 3px 1px @base2-accent;
+		}
 	}
+}
+.main.column .section-header {
+	color: white;
+	text-align: center;
+	font-size: 4em;
+	width: fit-content;
+	margin: 0 auto;
+	background-color: #5A67D8;
+	padding: 5px 10px;
 }
