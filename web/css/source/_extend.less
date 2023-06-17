@@ -1,30 +1,106 @@
+/* Palette */
+
+// Navy Blue:
+@navy-blue-100: #EBF4FF;
+@navy-blue-200: #C3DAFE;
+@navy-blue-300: #A3BFFA;
+@navy-blue-400: #7F9CF5;
+@navy-blue-500: #667EEA;
+@navy-blue-600: #5A67D8;
+@navy-blue-700: #4C51BF;
+@navy-blue-800: #434190;
+@navy-blue-900: #3C366B;
+
+// Gold:
+@gold-100: #FFFAEB;
+@gold-200: #FCEFC7;
+@gold-300: #F8E3A3;
+@gold-400: #F9DA8B;
+@gold-500: #F7D070;
+@gold-600: #E9B949;
+@gold-700: #C99A2E;
+@gold-800: #A27C1A;
+@gold-900: #7C5E10;
+
+/* Theme Colors */
+// base
+@base: @navy-blue-600;
+@base-secondary: @navy-blue-200;
+@base-accent: @navy-blue-700;
+@base2: @gold-600;
+@base2-secondary: @gold-200;
+@base2-accent: @gold-700;
+// button
+@button-primary: @base;
+@button-primary-border: @base-accent;
+@button-primary-hover: @base-accent;
+
 /* Layout */
 .page-header .panel.wrapper {
-	background-color: #5A67D8;
+	background-color: @base;
 }
+.sections.nav-sections, .navigation {
+	background-color: @base-secondary;
+}
+.minicart-wrapper .action.showcart {
+	&::before {
+		color: @base2-accent;
+	}
+
+	&:hover::before {
+		color: @base2-accent;
+	}
+}
+.navigation {
+	.level0 {
+	  &.active {
+		 > .level-top {
+			border-color: @base;
+			color: @base-accent;
+		 }
+	  }
+	  > .level-top {
+		 color: @base-accent;
+	  }
+	}
+ }
 .copyright {
-	background-color: #E9B949;
+	background-color: @base2;
 }
 .page-footer {
-	background-color: #FCEFC7;
+	& {
+		background-color: @base2-secondary;
+	}
+
+	.action.subscribe {
+		& {
+			background-color: @base2;
+			border-color: @base2-accent;
+		}
+
+		&:hover {
+			background-color: @base2-accent;
+		}
+	}
 }
 .footer.content .links .nav.item a {
-	color: #7C5E10;
+	color: @base2-accent;
 }
 /* Buttons */
-.action.primary {
-	background-color: #5A67D8;
-	border-color: #4C51BF;
-}
-.action.primary:hover {
-	background-color: #4C51BF;
-}
-.control input {
-	border-color: #C99A2E;
-}
-.minicart-wrapper .action.showcart::before {
-	color: #A27C1A;
-}
-.minicart-wrapper .action.showcart:hover::before {
-	color: #C99A2E;
+.action {
+	&.primary {
+	  background-color: @button-primary;
+	  border-color: @button-primary-border;
+	  &:hover {
+		 background-color: @button-primary-hover;
+	  }
+	}
+ }
+ 
+.control {
+	input,
+	textarea
+	{
+		border-color: @base2-accent;
+	}
 }
